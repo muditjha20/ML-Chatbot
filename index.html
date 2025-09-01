@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML RAG Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="logo-text">ML RAG Assistant</div>
+            </div>
+            
+            <div class="header-controls">
+                <div class="top-k-selector">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Sources:</span>
+                    <select id="topK">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4" selected>4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                
+                <div class="health-status">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                    <span id="statusText">Connecting to backend... (Render)</span>
+                </div>
+                
+                <button class="clear-chat" id="clearChat">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>Clear Chat</span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="welcome-message">
+                <div class="welcome-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>ML RAG Assistant</h3>
+                <p>Ask questions about machine learning topics, and I'll search through documentation to provide answers with sources.</p>
+                <p>Try asking about "LDA vs logistic regression" or "bias-variance tradeoff".</p>
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <textarea 
+                class="message-input" 
+                id="messageInput" 
+                placeholder="Type your question here... (Shift+Enter for new line)" 
+                rows="1"
+            ></textarea>
+            <button class="send-button" id="sendButton" disabled>
+                <i class="fas fa-paper-plane"></i>
+                <span>Send</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
